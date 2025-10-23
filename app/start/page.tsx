@@ -269,7 +269,7 @@ export default function StartRoomPage() {
             {isAllRunning && (
               <div className="mt-6 pt-4 border-t border-white/10">
                 <a
-                  href="http://localhost:5006"
+                  href="https://diatonically-pistonlike-verda.ngrok-free.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors block text-center"
