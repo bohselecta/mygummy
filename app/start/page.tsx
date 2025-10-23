@@ -1,108 +1,11 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react'
+import Link from 'next/link'
 
-interface ServiceStatus {
-  ollama: { status: string; running: string; port: number };
-  app: { status: string; running: string; port: number };
-  ngrok: { status: string; running: string; port: number };
-}
-
-interface StatusResponse {
-  ngrok_url: string | null;
-  services: ServiceStatus;
-  success: boolean;
-}
-
-export default function StartRoomPage() {
-  const [status, setStatus] = useState<StatusResponse | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [roomName, setRoomName] = useState('');
+export default function StartPage() {
+  const [roomName, setRoomName] = useState('')
   const [copied, setCopied] = useState(false);
-
-  const API_BASE = '/api/gummy';
-
-  const fetchStatus = async () => {
-    try {
-      const response = await fetch(`${API_BASE}?endpoint=status`);
-      if (response.ok) {
-        const data = await response.json();
-        setStatus(data);
-        setError(null);
-      } else {
-        setError('Failed to get status from API');
-      }
-    } catch (error) {
-      setError('Cannot connect to Gummy server. Make sure the server is running and accessible.');
-    }
-  };
-
-  const startAllServices = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`${API_BASE}?endpoint=start-all`, { method: 'POST' });
-      const result = await response.json();
-      
-      if (result.success) {
-        setTimeout(() => {
-          fetchStatus();
-          setLoading(false);
-        }, 2000);
-      } else {
-        setError(result.message || 'Failed to start services');
-        setLoading(false);
-      }
-    } catch (error) {
-      setError(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
-      setLoading(false);
-    }
-  };
-
-  const startAppOnly = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`${API_BASE}?endpoint=start-app`, { method: 'POST' });
-      const result = await response.json();
-      
-      if (result.success) {
-        setTimeout(() => {
-          fetchStatus();
-          setLoading(false);
-        }, 2000);
-      } else {
-        setError(result.message || 'Failed to start app');
-        setLoading(false);
-      }
-    } catch (error) {
-      setError(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
-      setLoading(false);
-    }
-  };
-
-  const startNgrokOnly = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`${API_BASE}?endpoint=start-ngrok`, { method: 'POST' });
-      const result = await response.json();
-      
-      if (result.success) {
-        setTimeout(() => {
-          fetchStatus();
-          setLoading(false);
-        }, 2000);
-      } else {
-        setError(result.message || 'Failed to start ngrok');
-        setLoading(false);
-      }
-    } catch (error) {
-      setError(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
-      setLoading(false);
-    }
-  };
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -110,17 +13,7 @@ export default function StartRoomPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  useEffect(() => {
-    fetchStatus();
-    const interval = setInterval(fetchStatus, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const isAllRunning = status?.services?.ollama?.status === 'online' && 
-                      status?.services?.app?.status === 'online' && 
-                      status?.services?.ngrok?.status === 'online';
-
-  const hasPublicUrl = status?.ngrok_url && status.ngrok_url !== 'Not available';
+  const chatRoomUrl = 'https://diatonically-pistonlike-verda.ngrok-free.dev';
 
   return (
     <div className="min-h-screen bg-[url('/gummy-diagonal.svg')] bg-cover bg-center bg-no-repeat">
@@ -130,17 +23,17 @@ export default function StartRoomPage() {
       {/* Navigation */}
       <nav className="relative z-10 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <img 
               src="/gummy-logo.svg" 
               alt="Gummy Logo" 
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
           <div className="flex items-center space-x-6">
-            <a href="/" className="text-white/80 hover:text-white transition-colors">
+            <Link href="/" className="text-white/80 hover:text-white transition-colors">
               Home
-            </a>
+            </Link>
             <a 
               href="https://github.com/bohselecta/gummy2" 
               target="_blank" 
@@ -164,9 +57,7 @@ export default function StartRoomPage() {
 
             {/* Room Name Input */}
             <div className="mb-6">
-              <label htmlFor="roomName" className="block text-white font-medium mb-2">
-                Room Name (Optional)
-              </label>
+              <label htmlFor="roomName" className="block text-white font-medium mb-2">Room Name (Optional)</label>
               <input
                 type="text"
                 id="roomName"
@@ -177,103 +68,57 @@ export default function StartRoomPage() {
               />
             </div>
 
-            {/* Status Indicators */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
-                    <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                      status?.services?.ollama?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
-                    }`}></div>
-                    <div className="text-white text-sm font-medium">Ollama</div>
-                    <div className="text-white/60 text-xs">
-                      {status?.services?.ollama?.status === 'online' ? 'Running' : 'Offline'}
-                    </div>
-              </div>
-              
-              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
-                <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                  status?.services?.app?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
-                }`}></div>
-                <div className="text-white text-sm font-medium">App</div>
-                <div className="text-white/60 text-xs">
-                  {status?.services?.app?.status === 'online' ? 'Running' : 'Offline'}
+            {/* Public URL Display */}
+            <div className="mb-6 bg-gray-700/60 border border-gray-600/30 rounded-lg p-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-white/70 text-sm mb-1">Your Chat Room URL:</p>
+                  <p className="text-white font-mono text-sm break-all">{chatRoomUrl}</p>
                 </div>
-              </div>
-              
-              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
-                <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                  status?.services?.ngrok?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
-                }`}></div>
-                <div className="text-white text-sm font-medium">Tunnel</div>
-                <div className="text-white/60 text-xs">
-                  {status?.services?.ngrok?.status === 'online' ? 'Active' : 'Offline'}
-                </div>
+                <button
+                  onClick={() => copyToClipboard(chatRoomUrl)}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm transition-colors"
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
               </div>
             </div>
 
-            {/* Public URL Display */}
-            {hasPublicUrl && (
-              <div className="mb-6 bg-gray-700/60 border border-gray-600/30 rounded-lg p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white/70 text-sm mb-1">Your Public Room URL:</p>
-                    <p className="text-white font-mono text-sm break-all">{status.ngrok_url}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard(status.ngrok_url || '')}
-                    className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm transition-colors"
-                  >
-                    {copied ? 'Copied!' : 'Copy'}
-                  </button>
-                </div>
-              </div>
-            )}
-
-
-            {/* Error Display */}
-            {error && (
-              <div className="mt-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
-                <div className="text-sm text-red-200">{error}</div>
-              </div>
-            )}
-
-            {/* Open Room Button */}
-            {isAllRunning && (
-              <div className="mt-6 pt-4 border-t border-white/10">
-                <a
-                  href="https://diatonically-pistonlike-verda.ngrok-free.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors block text-center"
-                >
-                  🏠 Open Your Chat Room
-                </a>
-              </div>
-            )}
+            {/* Open Chat Room Button */}
+            <div className="mt-6">
+              <a
+                href={chatRoomUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors"
+              >
+                🏠 Open Your Chat Room
+              </a>
+            </div>
 
             {/* Instructions */}
             <div className="mt-8 pt-6 border-t border-white/10">
               <h3 className="text-white font-medium mb-3">How to use:</h3>
               <ol className="text-white/70 text-sm space-y-2">
                 <li>1. Enter a room name (optional)</li>
-                <li>2. Check the status lights above to see if services are running</li>
-                <li>3. Copy the public URL to share with others (when available)</li>
-                <li>4. Click "Open Your Chat Room" to start chatting</li>
+                <li>2. Copy the URL above to share with others</li>
+                <li>3. Click "Open Your Chat Room" to start chatting</li>
+                <li>4. If the server is offline, you'll see an error message</li>
               </ol>
             </div>
           </div>
 
           {/* Back to Home */}
           <div className="text-center mt-6">
-            <a 
+            <Link 
               href="/"
               className="text-white/70 hover:text-white transition-colors"
             >
               ← Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </main>
     </div>
-  );
+  )
 }
