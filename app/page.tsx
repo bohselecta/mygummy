@@ -72,6 +72,14 @@ export default function Page() {
       {/* How it works */}
       <section id="how" className="py-16">
         <div className="max-w-6xl mx-auto px-6">
+          {/* Small bag image */}
+          <div className="text-center mb-8">
+            <img 
+              src="/small-bag.png" 
+              alt="Small gummy bag" 
+              className="w-24 h-auto mx-auto"
+            />
+          </div>
           <h2 className="text-3xl font-bold text-center mb-12">How Gummy hosting works</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
