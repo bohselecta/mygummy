@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const DASHBOARD_API_URL = 'http://localhost:5007/api';
+const DASHBOARD_API_URL = process.env.NEXT_PUBLIC_GUMMY_API_URL || 'http://localhost:5007/api';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
