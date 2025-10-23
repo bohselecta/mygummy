@@ -229,34 +229,6 @@ export default function StartRoomPage() {
               </div>
             )}
 
-            {/* Control Buttons */}
-            <div className="space-y-3">
-              <button
-                onClick={startAllServices}
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-3 rounded-lg transition-all transform hover:scale-105 disabled:transform-none"
-              >
-                {loading ? 'Starting...' : '🚀 Start Everything'}
-              </button>
-              
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={startAppOnly}
-                  disabled={loading}
-                  className="bg-white/10 hover:bg-white/20 disabled:bg-gray-600 border border-white/20 text-white font-medium py-2 px-3 rounded-lg transition-all text-sm"
-                >
-                  📱 Start App
-                </button>
-                
-                <button
-                  onClick={startNgrokOnly}
-                  disabled={loading}
-                  className="bg-white/10 hover:bg-white/20 disabled:bg-gray-600 border border-white/20 text-white font-medium py-2 px-3 rounded-lg transition-all text-sm"
-                >
-                  🌐 Start Tunnel
-                </button>
-              </div>
-            </div>
 
             {/* Error Display */}
             {error && (
@@ -281,11 +253,11 @@ export default function StartRoomPage() {
 
             {/* Instructions */}
             <div className="mt-8 pt-6 border-t border-white/10">
-              <h3 className="text-white font-medium mb-3">How to start:</h3>
+              <h3 className="text-white font-medium mb-3">How to use:</h3>
               <ol className="text-white/70 text-sm space-y-2">
                 <li>1. Enter a room name (optional)</li>
-                <li>2. Click "Start Everything" to launch all services</li>
-                <li>3. Copy the public URL to share with others</li>
+                <li>2. Check the status lights above to see if services are running</li>
+                <li>3. Copy the public URL to share with others (when available)</li>
                 <li>4. Click "Open Your Chat Room" to start chatting</li>
               </ol>
             </div>
