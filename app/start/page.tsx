@@ -13,7 +13,7 @@ export default function StartPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const chatRoomUrl = 'https://diatonically-pistonlike-verda.ngrok-free.dev';
+  const chatRoomUrl = process.env.NEXT_PUBLIC_GUMMY_API_URL || 'https://diatonically-pistonlike-verda.ngrok-free.dev';
 
   return (
     <div className="min-h-screen bg-[url('/gummy-diagonal.svg')] bg-cover bg-center bg-no-repeat">
@@ -84,15 +84,15 @@ export default function StartPage() {
               </div>
             </div>
 
-            {/* Open Chat Room Button */}
+            {/* Launch Room Button */}
             <div className="mt-6">
               <a
                 href={chatRoomUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 rounded-lg transition-all transform hover:scale-105"
               >
-                🏠 Open Your Chat Room
+                🚀 Launch Room
               </a>
             </div>
 
@@ -101,8 +101,8 @@ export default function StartPage() {
               <h3 className="text-white font-medium mb-3">How to use:</h3>
               <ol className="text-white/70 text-sm space-y-2">
                 <li>1. Enter a room name (optional)</li>
-                <li>2. Copy the URL above to share with others</li>
-                <li>3. Click "Open Your Chat Room" to start chatting</li>
+                <li>2. Click "Launch Room" to start your chat room</li>
+                <li>3. Copy the URL above to share with others</li>
                 <li>4. If the server is offline, you'll see an error message</li>
               </ol>
             </div>
