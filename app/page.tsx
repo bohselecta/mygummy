@@ -37,10 +37,7 @@ export default function Page() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <a href="#hosting" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-              Start Hosting
-            </a>
-            <a href="#hosting" className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-colors">
-              Start Your Room
+              Start a Room
             </a>
             <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-gray-900 font-semibold px-8 py-3 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors">
               Download via GitHub
@@ -132,7 +129,7 @@ export default function Page() {
                 Download via GitHub
               </a>
               <a href="#hosting" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-                Start Your Room
+                Start a Room
               </a>
             </div>
           </div>
