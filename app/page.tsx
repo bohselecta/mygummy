@@ -1,4 +1,4 @@
-import GummyHostingControls from '../components/GummyHostingControls';
+import StartRoomPanel from '../components/StartRoomPanel';
 
 export default function Page() {
   return (
@@ -39,8 +39,8 @@ export default function Page() {
             <a href="#hosting" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
               Start Hosting
             </a>
-            <a href="/join" className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-colors">
-              Join Your Host
+            <a href="#hosting" className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-colors">
+              Start Your Room
             </a>
             <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-gray-900 font-semibold px-8 py-3 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors">
               Download via GitHub
@@ -81,10 +81,10 @@ export default function Page() {
 
       </section>
 
-      {/* Hosting Controls Section */}
+      {/* Start Room Panel Section */}
       <section id="hosting" className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <GummyHostingControls />
+          <StartRoomPanel />
         </div>
       </section>
 
@@ -132,7 +132,7 @@ export default function Page() {
                 Download via GitHub
               </a>
               <a href="#hosting" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-                Start Hosting
+                Start Your Room
               </a>
             </div>
           </div>

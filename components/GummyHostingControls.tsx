@@ -19,11 +19,11 @@ export default function GummyHostingControls() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const API_BASE = process.env.NEXT_PUBLIC_GUMMY_API_URL || 'http://localhost:5007/api';
+  const API_BASE = '/api/gummy';
 
   const fetchStatus = async () => {
     try {
-      const response = await fetch(`${API_BASE}/status`);
+      const response = await fetch(`${API_BASE}?endpoint=status`);
       if (response.ok) {
         const data = await response.json();
         setStatus(data);
@@ -40,7 +40,7 @@ export default function GummyHostingControls() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE}/start-all`, { method: 'POST' });
+      const response = await fetch(`${API_BASE}?endpoint=start-all`, { method: 'POST' });
       const result = await response.json();
       
       if (result.success) {
@@ -63,7 +63,7 @@ export default function GummyHostingControls() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE}/start-app`, { method: 'POST' });
+      const response = await fetch(`${API_BASE}?endpoint=start-app`, { method: 'POST' });
       const result = await response.json();
       
       if (result.success) {
@@ -85,7 +85,7 @@ export default function GummyHostingControls() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE}/start-ngrok`, { method: 'POST' });
+      const response = await fetch(`${API_BASE}?endpoint=start-ngrok`, { method: 'POST' });
       const result = await response.json();
       
       if (result.success) {
@@ -121,13 +121,6 @@ export default function GummyHostingControls() {
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Start Gummy Room</h3>
         <p className="text-gray-600">Launch the Ollama chat host and share it with others</p>
-        {API_BASE.includes('localhost') && (
-          <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p className="text-sm text-yellow-800">
-              ⚠️ Currently configured for local development. Set NEXT_PUBLIC_GUMMY_API_URL to your public server URL for production.
-            </p>
-          </div>
-        )}
       </div>
 
       {/* Status Indicators */}
