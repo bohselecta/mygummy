@@ -43,14 +43,6 @@ export default function Page() {
             </a>
           </div>
 
-          {/* Platform badges */}
-          <div className="flex items-center justify-center gap-3 text-sm text-gray-500">
-            {['macOS', 'Windows', 'Linux', 'Mobile-friendly'].map((platform) => (
-              <span key={platform} className="px-3 py-1 bg-gray-100 rounded-full">
-                {platform}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* What people can do */}
