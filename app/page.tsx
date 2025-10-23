@@ -7,8 +7,6 @@ export default function Page() {
           <img src="/gummy-logo.png" alt="Gummy" className="h-8 w-auto" style={{filter: 'drop-shadow(0 0 0 1px black)'}}/>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-          <a href="#how" className="text-gray-600 hover:text-gray-900 transition-colors">How it works</a>
           <a href="#download" className="text-gray-600 hover:text-gray-900 transition-colors">Download</a>
         </nav>
       </header>
