@@ -34,7 +34,7 @@ export default function Page() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a href="/start" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors relative">
+            <a href="https://diatonically-pistonlike-verda.ngrok-free.dev" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors relative">
               Start a Room Online
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium">new</span>
             </a>
@@ -119,7 +119,7 @@ export default function Page() {
               <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noopener noreferrer" className="text-sm px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
                 Download via GitHub
               </a>
-              <a href="/start" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors relative">
+              <a href="https://diatonically-pistonlike-verda.ngrok-free.dev" target="_blank" rel="noopener noreferrer" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors relative">
                 Start a Room Online
                 <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full font-medium">new</span>
               </a>
