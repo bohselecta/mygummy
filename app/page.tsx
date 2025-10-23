@@ -112,8 +112,8 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <img src="/gummy-logo.png" alt="Gummy logo" className="h-6 w-auto" style={{filter: 'drop-shadow(0 0 0 1px black)'}}/>
-              <span className="text-sm">© {new Date().getFullYear()} Gummy</span>
+              <img src="/corgiverse-emblem.png" alt="Corgi-verse Software" className="h-6 w-auto"/>
+              <span className="text-sm">© 2025 Corgi-verse Software</span>
             </div>
             <div className="flex items-center gap-3">
               <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noopener noreferrer" className="text-sm px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
