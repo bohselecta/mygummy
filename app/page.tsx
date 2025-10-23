@@ -1,5 +1,3 @@
-import StartRoomPanel from '../components/StartRoomPanel';
-
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -36,7 +34,7 @@ export default function Page() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a href="#hosting" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+            <a href="/start" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
               Start a Room
             </a>
             <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-gray-900 font-semibold px-8 py-3 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors">
@@ -77,14 +75,6 @@ export default function Page() {
         </div>
 
       </section>
-
-      {/* Start Room Panel Section */}
-      <section id="hosting" className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <StartRoomPanel />
-        </div>
-      </section>
-
 
       {/* How it works */}
       <section id="how" className="py-16">
@@ -128,7 +118,7 @@ export default function Page() {
               <a href="https://github.com/bohselecta/gummy2" target="_blank" rel="noopener noreferrer" className="text-sm px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
                 Download via GitHub
               </a>
-              <a href="#hosting" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+              <a href="/start" className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
                 Start a Room
               </a>
             </div>

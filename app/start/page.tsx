@@ -14,7 +14,7 @@ interface StatusResponse {
   success: boolean;
 }
 
-export default function StartRoomPanel() {
+export default function StartRoomPage() {
   const [status, setStatus] = useState<StatusResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
