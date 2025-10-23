@@ -4,7 +4,7 @@ export default function Page() {
       {/* Header */}
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/gummy-logo.png" alt="Gummy" className="h-8 w-auto" style={{filter: 'drop-shadow(0 0 0 1px black)'}}/>
+          <img src="/gummy-logo.svg" alt="Gummy" className="h-8 w-auto" style={{filter: 'drop-shadow(0 0 0 1px black)'}}/>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <a href="#download" className="text-gray-600 hover:text-gray-900 transition-colors">Download</a>
