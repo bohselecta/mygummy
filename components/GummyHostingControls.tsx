@@ -19,7 +19,7 @@ export default function GummyHostingControls() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const API_BASE = 'http://localhost:5007/api';
+  const API_BASE = process.env.NEXT_PUBLIC_GUMMY_API_URL || 'http://localhost:5007/api';
 
   const fetchStatus = async () => {
     try {
@@ -32,7 +32,7 @@ export default function GummyHostingControls() {
         setError('Failed to get status from API');
       }
     } catch (error) {
-      setError('API not available - make sure admin-api.py is running');
+      setError('Cannot connect to Gummy server. Make sure the server is running and accessible.');
     }
   };
 
@@ -119,8 +119,15 @@ export default function GummyHostingControls() {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Start Your Gummy Room</h3>
-        <p className="text-gray-600">Launch your local Ollama chat host and share it with others</p>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">Start Gummy Room</h3>
+        <p className="text-gray-600">Launch the Ollama chat host and share it with others</p>
+        {API_BASE.includes('localhost') && (
+          <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-yellow-800">
+              ⚠️ Currently configured for local development. Set NEXT_PUBLIC_GUMMY_API_URL to your public server URL for production.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Status Indicators */}
