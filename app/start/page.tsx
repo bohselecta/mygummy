@@ -159,7 +159,7 @@ export default function StartRoomPage() {
           <div className="bg-gray-800/80 backdrop-blur-md border border-gray-600/30 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-white mb-2">Start a Room</h1>
-              <p className="text-white/70">Use our servers to host a room</p>
+              <p className="text-white/70">Use our servers to host a room and create a collaborative space</p>
             </div>
 
             {/* Room Name Input */}
