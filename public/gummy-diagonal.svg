@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Multicolor diagonal sweep -->
+    <linearGradient id="gummyDiagonal" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF4D39"/>
+      <stop offset="16%"  stop-color="#FF7A1C"/>
+      <stop offset="33%"  stop-color="#F7E33A"/>
+      <stop offset="50%"  stop-color="#6EDB3B"/>
+      <stop offset="66%"  stop-color="#2DB3F9"/>
+      <stop offset="83%"  stop-color="#7A4DFE"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+
+    <!-- soft sheen overlay for depth -->
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.18"/>
+      <stop offset="40%" stop-color="white" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- vignette for legibility -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background bands (big rotated rect so it always covers) -->
+  <g transform="rotate(-12 960 540)">
+    <rect x="-200" y="-200" width="2320" height="1480" fill="url(#gummyDiagonal)"/>
+  </g>
+
+  <!-- sheen + vignette -->
+  <rect width="1920" height="1080" fill="url(#sheen)"/>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>
