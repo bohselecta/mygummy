@@ -116,9 +116,9 @@ export default function StartRoomPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const isAllRunning = status?.services.ollama.status === 'online' && 
-                      status?.services.app.status === 'online' && 
-                      status?.services.ngrok.status === 'online';
+  const isAllRunning = status?.services?.ollama?.status === 'online' && 
+                      status?.services?.app?.status === 'online' && 
+                      status?.services?.ngrok?.status === 'online';
 
   const hasPublicUrl = status?.ngrok_url && status.ngrok_url !== 'Not available';
 
@@ -180,32 +180,32 @@ export default function StartRoomPage() {
             {/* Status Indicators */}
             <div className="grid grid-cols-3 gap-3 mb-6">
               <div className="text-center p-3 bg-gray-700/60 rounded-lg">
-                <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                  status?.services.ollama.status === 'online' ? 'bg-green-500' : 'bg-red-500'
-                }`}></div>
-                <div className="text-white text-sm font-medium">Ollama</div>
-                <div className="text-white/60 text-xs">
-                  {status?.services.ollama.status === 'online' ? 'Running' : 'Offline'}
-                </div>
+                    <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
+                      status?.services?.ollama?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
+                    }`}></div>
+                    <div className="text-white text-sm font-medium">Ollama</div>
+                    <div className="text-white/60 text-xs">
+                      {status?.services?.ollama?.status === 'online' ? 'Running' : 'Offline'}
+                    </div>
               </div>
               
               <div className="text-center p-3 bg-gray-700/60 rounded-lg">
                 <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                  status?.services.app.status === 'online' ? 'bg-green-500' : 'bg-red-500'
+                  status?.services?.app?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
                 }`}></div>
                 <div className="text-white text-sm font-medium">App</div>
                 <div className="text-white/60 text-xs">
-                  {status?.services.app.status === 'online' ? 'Running' : 'Offline'}
+                  {status?.services?.app?.status === 'online' ? 'Running' : 'Offline'}
                 </div>
               </div>
               
               <div className="text-center p-3 bg-gray-700/60 rounded-lg">
                 <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-                  status?.services.ngrok.status === 'online' ? 'bg-green-500' : 'bg-red-500'
+                  status?.services?.ngrok?.status === 'online' ? 'bg-green-500' : 'bg-red-500'
                 }`}></div>
                 <div className="text-white text-sm font-medium">Tunnel</div>
                 <div className="text-white/60 text-xs">
-                  {status?.services.ngrok.status === 'online' ? 'Active' : 'Offline'}
+                  {status?.services?.ngrok?.status === 'online' ? 'Active' : 'Offline'}
                 </div>
               </div>
             </div>
