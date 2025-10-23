@@ -112,7 +112,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <img src="/corgiverse-emblem.png" alt="Corgi-verse Software" className="h-6 w-auto"/>
+              <img src="/corgiverse-emblem.png" alt="Corgi-verse Software" className="h-10 w-auto"/>
               <span className="text-sm">© 2025 Corgi-verse Software</span>
             </div>
             <div className="flex items-center gap-3">
