@@ -156,7 +156,7 @@ export default function StartRoomPage() {
       {/* Main Content */}
       <main className="relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] px-6">
         <div className="w-full max-w-md">
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+          <div className="bg-gray-800/80 backdrop-blur-md border border-gray-600/30 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-white mb-2">Start a Room</h1>
               <p className="text-white/70">Launch your Ollama chat host and create a collaborative space</p>
@@ -179,7 +179,7 @@ export default function StartRoomPage() {
 
             {/* Status Indicators */}
             <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="text-center p-3 bg-white/5 rounded-lg">
+              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
                 <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
                   status?.services.ollama.status === 'online' ? 'bg-green-500' : 'bg-red-500'
                 }`}></div>
@@ -189,7 +189,7 @@ export default function StartRoomPage() {
                 </div>
               </div>
               
-              <div className="text-center p-3 bg-white/5 rounded-lg">
+              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
                 <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
                   status?.services.app.status === 'online' ? 'bg-green-500' : 'bg-red-500'
                 }`}></div>
@@ -199,7 +199,7 @@ export default function StartRoomPage() {
                 </div>
               </div>
               
-              <div className="text-center p-3 bg-white/5 rounded-lg">
+              <div className="text-center p-3 bg-gray-700/60 rounded-lg">
                 <div className={`w-3 h-3 rounded-full mx-auto mb-2 ${
                   status?.services.ngrok.status === 'online' ? 'bg-green-500' : 'bg-red-500'
                 }`}></div>
@@ -212,7 +212,7 @@ export default function StartRoomPage() {
 
             {/* Public URL Display */}
             {hasPublicUrl && (
-              <div className="mb-6 bg-white/5 border border-white/10 rounded-lg p-4">
+              <div className="mb-6 bg-gray-700/60 border border-gray-600/30 rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-white/70 text-sm mb-1">Your Public Room URL:</p>
