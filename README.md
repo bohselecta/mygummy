@@ -2,6 +2,16 @@
 
 A polished, Apple-glass style Next.js landing page for Gummy collaborative rooms.
 
+## Technology Position
+
+Gummy has evolved into an Actor-centered operating environment in which persistent human identity coordinates replaceable agents through governed operational memory, inspectable windows, bounded authority, durable collaboration, Evidence, Receipts, and mandatory Return to accepted Project state.
+
+Read the dated public statement:
+
+- [Gummy Actor–Agent Technology Position](TECHNOLOGY_POSITION.md)
+
+The position records Hayden Lindley’s authorship and independent development of the specific Gummy architecture while expressly avoiding claims over generic windows, agents, chat, RAG, cards, or other broad industry primitives.
+
 ## Features
 
 - **Hero Section**: Focused on Gummy Rooms with crisp copy and CTAs
@@ -47,3 +57,7 @@ The landing page includes links to:
 - **Typography**: Inter font family
 - **Effects**: Backdrop blur, glassmorphism, subtle animations
 - **Responsive**: Mobile-first design with Tailwind CSS
+
+## Rights
+
+Copyright © 2026 Hayden Lindley. All rights reserved except where an explicit license grants additional permissions.
